@@ -28,18 +28,18 @@
 
 <h2>Criar Novo Produto</h2>
 
-<form [formGroup]="form" >
+<form (ngSubmit)="criarProduto(formProduto.value)" #formProduto="ngForm">
   <div>
     <label for="nome">Nome:</label>
-    <input type="text" name="nome" formControlName="name">
+    <input type="text" name="nome" ngModel required>
   </div>
   <div>
     <label for="descricao">Descrição:</label>
-    <input type="text" name="descricao" formControlName="description">
+    <input type="text" name="descricao" ngModel required>
   </div>
   <div>
     <label for="preco">Preço:</label>
-    <input type="number" name="preco" formControlName="prece">
+    <input type="number" name="preco" ngModel required>
   </div>
-  <button type="submit" [disabled]="form.invalid" (click)="submit()">Salvar</button>
+  <button type="submit">Salvar</button>
 </form>
